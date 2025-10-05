@@ -84,8 +84,6 @@ Index_inicio_Cola++; //Avanza en uno cuando despachamos
         int totalPaquetesConE = 0;
         float pesoPromedio = 0.0f;
 
-
-
     std::cout << "Ingrese el destino para el reporte: \n";
     std::cin >> Ingresar_Destino;
 
@@ -102,10 +100,11 @@ Index_inicio_Cola++; //Avanza en uno cuando despachamos
           pesoPromedio = pesoPromedio + peso_Paquete[i];
           totalPaquetesConE++;
        }
-        std::cout << "\n";
-        std::cout << "Peso promedio de los paquetes: " << pesoPromedio / totalPaquetesConE;
+        
     }
     
+    std::cout << "\n";
+        std::cout << "Peso promedio de los paquetes: " << pesoPromedio / totalPaquetesConE;
     break;
 }
     case 5: {
