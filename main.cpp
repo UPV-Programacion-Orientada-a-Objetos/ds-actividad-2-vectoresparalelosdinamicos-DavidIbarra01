@@ -17,6 +17,7 @@ int Index_inicio_Cola = 0;
 
 do
 {
+    std::cout << "\n";
    std:: cout << "Seleccione una operación:\n";
 std:: cout << "1. Agregar Paquete (Encolar)\n";
 std:: cout << "2. Despachar Paquete (Desencolar)\n";
@@ -25,12 +26,12 @@ std:: cout << "4. Reporte por Destino\n";
 std:: cout << "5. Salir (Liberar Memoria)\n";
 int select = 0;
 std::cin >> select;
-
+std::cout << "\n";
 switch (select)
 {
 
 case 1:{ //Agregar Paquetes seleccionado
-
+std::cout << "\n";
   
 
     std::cout << "Ingrese el ID: \n" ; std::cin >> id_Paquete[cantidadPaquetes] ;
@@ -43,7 +44,7 @@ case 1:{ //Agregar Paquetes seleccionado
      {
         /* code */
      }
-     
+     std::cout << "\n";
     //-------------------------------
     std::cout << "Paquete agregado: "
          << "ID: " << id_Paquete[cantidadPaquetes] << ", "
@@ -56,6 +57,7 @@ case 1:{ //Agregar Paquetes seleccionado
     break;
     }
     case 2:{ //Aplicar FIFO
+        std::cout << "\n";
     std::cout << "Despachando paquete...\n";
 
         if (estado_Paquete[Index_inicio_Cola] == 'E')
@@ -70,8 +72,9 @@ Index_inicio_Cola++; //Avanza en uno cuando despachamos
 }
 
     case 3:{
+        std::cout << "\n";
     std::cout << "Frente de la cola:\n";
-    
+    std::cout << "\n";
         std::cout  << "ID: " << id_Paquete[Index_inicio_Cola] << ", "
         << "Peso: "  << peso_Paquete[Index_inicio_Cola] << " kg, "
         << "Destino: "  << destino_Paquete[Index_inicio_Cola] << ", "
@@ -80,6 +83,7 @@ Index_inicio_Cola++; //Avanza en uno cuando despachamos
     break;
 }
     case 4: {
+        std::cout << "\n";
         std::string Ingresar_Destino = "";
         int totalPaquetesConE = 0;
         float pesoPromedio = 0.0f;
@@ -91,7 +95,7 @@ Index_inicio_Cola++; //Avanza en uno cuando despachamos
     {
        if (estado_Paquete[i] == 'E' && destino_Paquete[i] == Ingresar_Destino)
        {
-        std::cout << "\n";
+        std::cout << "--------------------------------------\n";
         std::cout  << "ID: " << id_Paquete[i] << ", "
         << "Peso: "  << peso_Paquete[i] << " kg, "
         << "Destino: "  << destino_Paquete[i] << ", "
@@ -102,7 +106,7 @@ Index_inicio_Cola++; //Avanza en uno cuando despachamos
        }
         
     }
-    
+
     std::cout << "\n";
         std::cout << "Peso promedio de los paquetes: " << pesoPromedio / totalPaquetesConE;
     break;
@@ -114,14 +118,14 @@ delete[] id_Paquete;
 delete[] peso_Paquete;
 delete[] destino_Paquete;
 delete[] nivel_Prioridad_Paquete;
+delete[] estado_Paquete;
 
 std::cout << "Sistema cerrado. ¡Memoria libre!\n";
-
+        break;
     break;
     }
 default:{
 std::cout << "ERROR: Opcion invalida\n";
-    break;
     break;
     }
 }
