@@ -9,11 +9,11 @@ int cantidadPaquetes = 0;
 int capacidad_Paquetes = 50;
 int Index_inicio_Cola = 0;
 
-  int *id_Paquete = new int[50];
-    float *peso_Paquete = new float[50];
-    std::string *destino_Paquete = new std::string[50];
-     int *nivel_Prioridad_Paquete = new int[50];
-      char *estado_Paquete = new char[50];
+  int *id_Paquete = new int[capacidad_Paquetes];
+    float *peso_Paquete = new float[capacidad_Paquetes];
+    std::string *destino_Paquete = new std::string[capacidad_Paquetes];
+     int *nivel_Prioridad_Paquete = new int[capacidad_Paquetes];
+      char *estado_Paquete = new char[capacidad_Paquetes];
 
 do
 {
@@ -40,9 +40,36 @@ std::cout << "\n";
      std::cout << "Y por ultimo el nivel de prioridad: \n"; std::cin >> nivel_Prioridad_Paquete[cantidadPaquetes];
      estado_Paquete[cantidadPaquetes] = 'E';
 
-     if (cantidadPaquetes == 50 )
+     int num_elementos = sizeof(id_Paquete) / sizeof(id_Paquete[0]);
+
+     if (capacidad_Paquetes == 50 )
      {
-        /* code */
+       int  Nueva_cantidadPaquetes = capacidad_Paquetes * 2;
+
+        int *Aux_id_Paquete = new int[Nueva_cantidadPaquetes];
+    float *Aux_peso_Paquete = new float[Nueva_cantidadPaquetes];
+    std::string *Aux_destino_Paquete = new std::string[Nueva_cantidadPaquetes];
+     int *Aux_nivel_Prioridad_Paquete = new int[Nueva_cantidadPaquetes];
+      char *Aux_estado_Paquete = new char[Nueva_cantidadPaquetes];
+
+        Aux_id_Paquete = id_Paquete;
+    Aux_peso_Paquete = peso_Paquete;
+    Aux_destino_Paquete = destino_Paquete;
+    Aux_nivel_Prioridad_Paquete = nivel_Prioridad_Paquete;
+    Aux_estado_Paquete = estado_Paquete;
+
+        delete[] id_Paquete;
+        delete[] peso_Paquete;
+        delete[] destino_Paquete;
+        delete[] nivel_Prioridad_Paquete;
+        delete[] estado_Paquete;
+
+        id_Paquete = Aux_destino_Paquete;
+        peso_Paquete = Aux_peso_Paquete;
+        destino_Paquete = Aux_destino_Paquete;
+        nivel_Prioridad_Paquete = Aux_nivel_Prioridad_Paquete;
+        estado_Paquete = Aux_estado_Paquete;
+
      }
      std::cout << "\n";
     //-------------------------------
